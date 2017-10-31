@@ -1,6 +1,10 @@
 package com.chatbox.bussiness;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -10,6 +14,8 @@ import java.util.regex.Pattern;
 import javax.ws.rs.core.MultivaluedMap;
 
 import org.codehaus.jackson.map.ObjectMapper;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import com.chatbox.model.AutomationRequest;
 import com.chatbox.model.WorkletParameter;
@@ -95,7 +101,7 @@ public class AERestCall {
 		ObjectMapper mapper = new ObjectMapper();
 		try {
 			requestJSON = mapper.writeValueAsString(ar);
-			System.out.println("Execute request JSON: " + requestJSON);
+			//System.out.println("Execute request JSON: " + requestJSON);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -109,7 +115,7 @@ public class AERestCall {
     	ClientResponse response = builder.post(ClientResponse.class, requestJSON);
 		String output = response.getEntity(String.class);
 
-    	System.out.println("........"+output);
+    	//System.out.println("........"+output);
 //    	"automationRequestId":2428,
 		Matcher m1 = 
 				Pattern.compile("\"automationRequestId\":([0-9]+)").matcher(output);
@@ -126,4 +132,5 @@ public class AERestCall {
 	public String getClientEmail(String slackUserId) {
 		return "saurabh.kulkarni@vyomlabs.com";
 	}
+	
 }

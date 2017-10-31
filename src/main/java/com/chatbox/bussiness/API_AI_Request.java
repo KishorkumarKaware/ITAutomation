@@ -10,7 +10,7 @@ public class API_AI_Request {
 	public JavaModel jsonToJava(String json) {
 		JavaModel jmResponse = null;
 		try {
-			System.out.println("...................");
+			//System.out.println("...................");
 			System.out.println(json);
 			try {
 				ObjectMapper mapper = new ObjectMapper();
@@ -20,8 +20,8 @@ public class API_AI_Request {
 				e.printStackTrace();
 			}
 			System.out.println(jmResponse.getSessionId());
-			System.out.println("apiai res:"+jmResponse);
-			System.out.println("...................");
+			//System.out.println("apiai res:"+jmResponse);
+			//System.out.println("...................");
 			return jmResponse;
 			
 		} /*catch (Exception e) {
